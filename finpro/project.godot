@@ -16,7 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Final Project"
+run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=320
 
 [rendering]
 
