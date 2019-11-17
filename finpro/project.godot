@@ -23,6 +23,14 @@ config/icon="res://icon.png"
 
 window/size/width=320
 
+[image]
+
+size/height=false
+
+[image_loader]
+
+size/height=false
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
