@@ -24,6 +24,8 @@ func get_input():
 	if Input.is_action_pressed('ui_down'):
 		velocity.y -= speed
 
+func _physics_process(delta):
+	get_input()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#pass
+# func _process(delta):
+# pass
