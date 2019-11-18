@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Moony's Tale"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -37,5 +37,5 @@ size/height=false
 
 [rendering]
 
-environment/default_clear_color=Color( 0.305882, 0.0313726, 0.431373, 1 )
+environment/default_clear_color=Color( 0.00392157, 0.0117647, 0.0156863, 1 )
 environment/default_environment="res://default_env.tres"
