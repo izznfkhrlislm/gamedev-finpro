@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/Rabbits/stars_far.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/star.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/Rabbits/stars_close.png" type="Texture" id=3]
+
+[node name="stars" type="Node"]
+
+[node name="stars-far" type="Node2D" parent="."]
+
+[node name="stars-far-sprite" type="Sprite" parent="stars-far"]
+position = Vector2( 0, -1080 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 2 )
+velocity = Vector2( 0, 150 )
+
+[node name="stars-far-sprite2" type="Sprite" parent="stars-far"]
+scale = Vector2( 6, 6 )
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 2 )
+velocity = Vector2( 0, 150 )
+
+[node name="stars-close" type="Node2D" parent="."]
+
+[node name="stars-close-sprite" type="Sprite" parent="stars-close"]
+position = Vector2( 0, -1080 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 3 )
+centered = false
+script = ExtResource( 2 )
+velocity = Vector2( 0, 200 )
+
+[node name="stars- close-sprite2" type="Sprite" parent="stars-close"]
+scale = Vector2( 6, 6 )
+texture = ExtResource( 3 )
+centered = false
+script = ExtResource( 2 )
+velocity = Vector2( 0, 200 )
