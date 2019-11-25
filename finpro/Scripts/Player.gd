@@ -4,28 +4,44 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-export (int) var speed = 400
-const UP = Vector2(0,-1)
-var velocity = Vector2()
+export (int) var speed = 200
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+onready var direction = 'up'
+onready var axis = 'y'
+
+var velocity = Vector2()
 
 func get_input():
 	if Input.is_action_pressed('ui_right'):
 		$Sprite.flip_h = false
-		velocity.x += speed
+		direction = 'right'
+		axis = 'x'
 	if Input.is_action_pressed('ui_left'):
 		$Sprite.flip_h = true
-		velocity.x -= speed
+		direction = 'left'
+		axis = 'x'
 	if Input.is_action_pressed('ui_up'):
-		velocity.y += speed
+		direction = 'up'
+		axis = 'y'
 	if Input.is_action_pressed('ui_down'):
-		velocity.y -= speed
+		direction = 'down'
+		axis = 'y'
+	if Input.is_action_pressed('jump'):
+		if axis == 'y':
+			if direction == 'up':
+				velocity.y -= speed
+			else:
+				velocity.y += speed
+		else:
+			if direction == 'right':
+				velocity.x += speed
+			else:
+				velocity.x -= speed
 
 func _physics_process(delta):
 	get_input()
+	velocity = move_and_slide(velocity)
+	velocity = Vector2.ZERO
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # func _process(delta):
 # pass
