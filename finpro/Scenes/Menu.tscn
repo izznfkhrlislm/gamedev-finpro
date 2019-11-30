@@ -1,14 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/stars.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/moon.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/Game logo.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fonts/Raw/m5x7.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Fonts/Raw/m5x7.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Sprites/Game logo.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Quit.gd" type="Script" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
-size = 120
-font_data = ExtResource( 4 )
+size = 50
+font_data = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer"]
 anchor_right = 1.0
@@ -21,24 +27,69 @@ position = Vector2( 528.44, 789.458 )
 scale = Vector2( 0.686228, 0.686228 )
 texture = ExtResource( 2 )
 
-[node name="Logo" type="Sprite" parent="."]
-position = Vector2( 535.887, 152.608 )
-scale = Vector2( 0.218729, 0.218729 )
-texture = ExtResource( 3 )
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 399.0
-margin_top = 312.0
-margin_right = 624.0
-margin_bottom = 407.0
+margin_left = 308.0
+margin_top = 297.0
+margin_right = 715.0
+margin_bottom = 423.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Start" type="LinkButton" parent="VBoxContainer"]
-margin_right = 225.0
-margin_bottom = 95.0
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = -100.0
+margin_right = 407.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+margin_top = 50.0
+margin_right = 407.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 2 )
+text = "by Space Entertainment Games"
+
+[node name="Logo" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 205.887, -94.392 )
+scale = Vector2( 0.218729, 0.218729 )
+texture = ExtResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 407.0
+margin_bottom = 126.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer"]
+margin_left = 156.0
+margin_right = 251.0
+margin_bottom = 90.0
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="Start" type="LinkButton" parent="VBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 95.0
+margin_bottom = 41.0
 custom_fonts/font = SubResource( 1 )
 text = "START"
 underline = 2
 script = ExtResource( 5 )
-[connection signal="pressed" from="VBoxContainer/Start" to="VBoxContainer/Start" method="_on_Start_pressed"]
+
+[node name="Start2" type="LinkButton" parent="VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 45.0
+margin_right = 95.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 1 )
+text = "QUIT"
+underline = 2
+script = ExtResource( 6 )
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 95.0
+margin_bottom = 90.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 531.606, 546.477 )
+scale = Vector2( 0.145606, 0.145606 )
+texture = ExtResource( 7 )
+[connection signal="pressed" from="VBoxContainer/CenterContainer/VBoxContainer/Start" to="VBoxContainer/CenterContainer/VBoxContainer/Start" method="_on_Start_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/VBoxContainer/Start2" to="VBoxContainer/CenterContainer/VBoxContainer/Start2" method="_on_Start_pressed"]
