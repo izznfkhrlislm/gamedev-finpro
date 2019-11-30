@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Sprites/moon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/MainFont.tres" type="DynamicFont" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Assets/Sprites/Rabbits/rabbit4.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/GoMainMenu.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Fonts/Raw/m5x7.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scenes/Score.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/stars.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -57,11 +59,14 @@ text = "Main Menu"
 script = ExtResource( 7 )
 scene_to_load = "Menu"
 
-[node name="Label2" type="Label" parent="."]
+[node name="Score" type="Label" parent="."]
 margin_left = 387.807
 margin_top = 208.713
 margin_right = 576.807
 margin_bottom = 288.713
 custom_fonts/font = SubResource( 1 )
 text = "Score:"
+script = ExtResource( 9 )
+
+[node name="stars" parent="." instance=ExtResource( 10 )]
 [connection signal="pressed" from="GoMainMenu" to="GoMainMenu" method="_on_GoMainMenu_pressed"]
