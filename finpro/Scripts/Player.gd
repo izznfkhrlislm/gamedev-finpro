@@ -5,15 +5,19 @@ extends KinematicBody2D
 # var b = "text"
 
 export (int) var speed = 1500
+export (NodePath) var camera_path
 
 onready var world = get_tree().current_scene
 onready var width = get_viewport().size.x
+onready var height = get_viewport().size.y
+onready var camera = get_node(camera_path)
 
 var direction = 'up'
 var axis = 'y'
 var counter = 0
 var rabbit = preload("res://Scenes/Rabbit.tscn")
 var velocity = Vector2()
+
 
 func _input(event):
 	if event is InputEventKey:
@@ -44,23 +48,32 @@ func _input(event):
 				else:
 					velocity.x -= speed
 			check_jump_count()
-		
+
+
 func check_jump_count():
 	randomize()
-	print(counter)
-	print($Camera2D.get_camera_position())
 	if counter == 20:
-		var height = $Camera2D.get_camera_position().y
-		var rabbit_instance = rabbit.instance()
-		rabbit_instance.set_position(Vector2(rand_range(0, width), height-300))
-		if world != null:
-			world.add_child(rabbit_instance)
+		create_rabbit_instance()
 		counter = 0
+
+
+func create_rabbit_instance():
+	var rabbit_instance = rabbit.instance()
+	rabbit_instance.set_position(Vector2(rand_range(0, width), camera.position.y-300))
+	if world != null:
+		world.add_child(rabbit_instance)
+
 
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 	velocity = Vector2.ZERO
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-# func _process(delta):
-# pass
+
+
+func exit_screen():
+	if position.y > camera.position.y + height/2:
+		pass #player dead
+		
+	if position.x > camera.position.x and axis == 'x':
+		position = Vector2(32, position.y)
+	elif position.x < camera.position.x and axis == 'x':
+		position = Vector2(width-32, position.y)

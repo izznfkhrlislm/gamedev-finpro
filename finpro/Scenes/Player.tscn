@@ -18,5 +18,5 @@ texture = ExtResource( 2 )
 position = Vector2( 1.50155, 0.199099 )
 shape = SubResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="exit_screen"]
