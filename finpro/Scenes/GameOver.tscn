@@ -8,8 +8,9 @@
 [ext_resource path="res://Assets/Sprites/Rabbits/rabbit4.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/GoMainMenu.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Fonts/Raw/m5x7.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Scenes/Score.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Score.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/stars.tscn" type="PackedScene" id=10]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
