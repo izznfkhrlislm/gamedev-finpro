@@ -41,15 +41,19 @@ func _input(event):
 			axis = 'y'
 		if event.is_action_pressed('jump'):
 			if direction == 'up':
+				$Sprite.play("JumpUP")
 				velocity.y -= speed
 				counter += 1
 			elif direction == 'down':
+				$Sprite.play("JumpDOWN")
 				velocity.y += speed
 			elif direction == 'right':
+				$Sprite.play("JumpV")
 				velocity.x += speed
 			else:
+				$Sprite.play("JumpV")
 				velocity.x -= speed
-			print(velocity)
+			$Sprite.frame = 0
 			check_jump_count()
 
 
@@ -69,14 +73,6 @@ func create_rabbit_instance():
 
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
-	if velocity.x != 0:
-		$Sprite.play("JumpV")
-		
-	if velocity.y != 0:
-		if direction == "up":
-			$Sprite.play("JumpUP")
-		else:
-			$Sprite.play("JumpDOWN")
 	velocity = Vector2.ZERO
 
 
