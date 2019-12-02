@@ -19,3 +19,5 @@ current = true
 smoothing_enabled = true
 script = ExtResource( 3 )
 player_path = NodePath("../Player")
+
+[node name="TileMap" type="TileMap" parent="."]
