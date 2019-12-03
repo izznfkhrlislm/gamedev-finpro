@@ -4,7 +4,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-export (int) var speed = 1600
+export (int) var speed = 2200
 export (NodePath) var camera_path
 
 onready var world = get_tree().current_scene
@@ -14,7 +14,10 @@ onready var camera = get_node(camera_path)
 
 var axis = 'y'
 var direction = 'up'
-var counter = 0
+var on_platform = false
+var on_death_area = false
+var platform_vel = 0
+var counter = global.counter
 var rabbit = preload("res://Scenes/Rabbit.tscn")
 var velocity = Vector2()
 
@@ -40,6 +43,7 @@ func _input(event):
 			direction = 'down'
 			axis = 'y'
 		if event.is_action_pressed('jump'):
+			on_platform = false
 			if direction == 'up':
 				$Sprite.play("JumpUP")
 				velocity.y -= speed
@@ -72,15 +76,21 @@ func create_rabbit_instance():
 
 
 func _physics_process(delta):
-	velocity = move_and_slide(velocity)
+#	if on_death_area && on_platform:
+#		velocity = move_and_slide(velocity)
+#	elif on_death_area && !on_platform:
+#		get_tree().change_scene("res://Scenes/GameOver.tscn")
+	if on_platform:
+		velocity = move_and_slide(platform_vel)
+	else:
+		velocity = move_and_slide(velocity)
 	velocity = Vector2.ZERO
 
 
 func exit_screen():
 	if position.y > camera.position.y + height/2:
 		get_tree().change_scene("res://Scenes/GameOver.tscn")
-		
 	if position.x > camera.position.x and axis == 'x':
-		position = Vector2(32, position.y)
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
 	elif position.x < camera.position.x and axis == 'x':
-		position = Vector2(width-32, position.y)
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
