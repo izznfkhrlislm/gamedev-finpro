@@ -28,6 +28,7 @@ func _on_body_exited_as_death_area(body):
 
 func _on_finish(body):
 	if body.get_name() == "Player":
+		randomize()
 		var scene_path = "res://Scenes/World" + str(randi() % 6 + 1) + ".tscn"
 		print(scene_path)
 		get_tree().change_scene(scene_path)

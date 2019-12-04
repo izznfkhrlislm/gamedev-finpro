@@ -3,9 +3,8 @@
 [ext_resource path="res://Scripts/Rabbit.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Rabbits/rabbit4.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 10.1777
-height = 0.845551
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.2586, 14.51 )
 
 [node name="Rabbit" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -18,6 +17,6 @@ texture = ExtResource( 2 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 2.15257, 4.58949 )
+position = Vector2( 1.61761, 0.53909 )
 shape = SubResource( 1 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Rabbit_entered"]

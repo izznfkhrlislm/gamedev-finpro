@@ -17,7 +17,6 @@ var direction = 'up'
 var on_platform = false
 var on_death_area = false
 var platform_vel = 0
-var counter = global.counter
 var rabbit = preload("res://Scenes/Rabbit.tscn")
 var velocity = Vector2()
 
@@ -47,7 +46,7 @@ func _input(event):
 			if direction == 'up':
 				$Sprite.play("JumpUP")
 				velocity.y -= speed
-				counter += 1
+				global.counter += 1
 			elif direction == 'down':
 				$Sprite.play("JumpDOWN")
 				velocity.y += speed
@@ -62,15 +61,15 @@ func _input(event):
 
 
 func check_jump_count():
-	if counter == 20:
+	if global.counter == 5:
 		create_rabbit_instance()
-		counter = 0
+		global.counter = 0
 
 
 func create_rabbit_instance():
 	randomize()
 	var rabbit_instance = rabbit.instance()
-	rabbit_instance.set_position(Vector2(rand_range(0, width), camera.position.y-300))
+	rabbit_instance.set_position(Vector2(rand_range(0, width), rand_range(0, height)))
 	if world != null:
 		world.add_child(rabbit_instance)
 
