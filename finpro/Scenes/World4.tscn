@@ -99,7 +99,7 @@ spawn_rate = 1.0
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, 50 )
 speed = 100
-spawn_rate = 2.0
+spawn_rate = 3.0
 
 [node name="Enemy3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1024, 0 )
@@ -121,13 +121,13 @@ spawn_rate = 1.0
 [node name="Platform2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1024, 608 )
 type = "platform"
-spawn_rate = 1.0
+spawn_rate = 3.0
 
 [node name="Platform3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, 560 )
 type = "platform"
 speed = 100
-spawn_rate = 0.8
+spawn_rate = 3.0
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 490.869, 680.158 )

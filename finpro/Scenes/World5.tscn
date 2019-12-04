@@ -52,6 +52,24 @@ script = ExtResource( 2 )
 speed = 100
 spawn_rate = 2.0
 
+[node name="Enemy4" type="Node2D" parent="."]
+position = Vector2( 0, 554.614 )
+script = ExtResource( 2 )
+type = "platform"
+speed = 100
+spawn_rate = 2.0
+
+[node name="Enemy2" type="Node2D" parent="."]
+position = Vector2( 1023.92, 305.132 )
+script = ExtResource( 2 )
+spawn_rate = 2.0
+
+[node name="Enemy3" type="Node2D" parent="."]
+position = Vector2( 1024.12, 409.952 )
+script = ExtResource( 2 )
+type = "platform"
+spawn_rate = 2.0
+
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 3 )
 
