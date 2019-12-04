@@ -13,12 +13,10 @@ func _on_body_entered_as_platform(body):
 
 func _on_body_exited_as_platform(body):
 	if body.get_name() == "Player":
-		print("exiting lava")
 		body.on_platform = false
 
 func _on_body_entered_as_death_area(body):
 	if body.get_name() == "Player":
-		print("entering lava")
 		get_tree().change_scene("res://Scenes/GameOver.tscn")
 		body.on_death_area = true
 
@@ -30,5 +28,4 @@ func _on_finish(body):
 	if body.get_name() == "Player":
 		randomize()
 		var scene_path = "res://Scenes/World" + str(randi() % 6 + 1) + ".tscn"
-		print(scene_path)
 		get_tree().change_scene(scene_path)

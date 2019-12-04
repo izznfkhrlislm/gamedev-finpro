@@ -43,6 +43,7 @@ func _input(event):
 			axis = 'y'
 		if event.is_action_pressed('jump'):
 			on_platform = false
+			$Jump.play()
 			if direction == 'up':
 				$Sprite.play("JumpUP")
 				velocity.y -= speed

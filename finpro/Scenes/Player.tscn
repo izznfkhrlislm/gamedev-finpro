@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Rabbits/Single/v-1.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Sprites/Rabbits/Single/up-3.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sprites/Rabbits/Single/down-2.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sprites/Rabbits/Single/down-3.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sounds/jump.wav" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -65,4 +66,7 @@ shape = SubResource( 2 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 0.180011, 3.87045 )
 scale = Vector2( 0.441935, 0.594953 )
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="exit_screen"]
