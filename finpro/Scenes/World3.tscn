@@ -8,37 +8,37 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4.11765, 20 )
+extents = Vector2( 3.94222, 20 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.39216, 13.4 )
+extents = Vector2( 4.39216, 11.7577 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 5.29412, 22.2 )
+extents = Vector2( 5.14666, 20.3461 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 0.725492, 12.6 )
+extents = Vector2( 0.615969, 12.6 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 2.84313, 30 )
+extents = Vector2( 2.74095, 28.7247 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 0.745097, 10 )
+extents = Vector2( 0.655755, 9.23257 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 0.627449, 4 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 0.392157, 4 )
+extents = Vector2( 0.392157, 2.41714 )
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 0.627453, 4 )
+extents = Vector2( 0.55088, 3.54152 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 0.60257, 10 )
+extents = Vector2( 0.532799, 8.47395 )
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 0.725489, 10 )
+extents = Vector2( 0.575938, 8.67395 )
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 9.99981, 15.2314 )
@@ -58,7 +58,7 @@ scale = Vector2( 51, 5 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 4.07843, 108 )
+position = Vector2( 4.07843, 107.256 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
@@ -86,7 +86,7 @@ position = Vector2( 8.78432, 92.2 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 11.0588, 106.4 )
+position = Vector2( 11.1025, 105.359 )
 shape = SubResource( 8 )
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Area2D"]
@@ -98,7 +98,7 @@ position = Vector2( 10.0641, 10 )
 shape = SubResource( 10 )
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 14.5294, 10.2 )
+position = Vector2( 14.4339, 9.81029 )
 shape = SubResource( 11 )
 
 [node name="Area2D2" type="Area2D" parent="."]

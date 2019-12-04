@@ -8,25 +8,25 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4.49019, 10 )
+extents = Vector2( 4.49019, 8.69053 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.41176, 10 )
+extents = Vector2( 4.41176, 8.55949 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4.45097, 13.8 )
+extents = Vector2( 4.45097, 12.1073 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 4.68627, 13 )
+extents = Vector2( 4.68627, 11.5518 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 0.392157, 6.40002 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 0.392157, 6.59999 )
+extents = Vector2( 0.392157, 5.68965 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 0.352935, 10.2 )
+extents = Vector2( 0.26876, 8.65411 )
 
 [sub_resource type="RectangleShape2D" id=8]
 
@@ -45,7 +45,7 @@ scale = Vector2( 51, 5 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 4.31373, 118 )
+position = Vector2( 4.31373, 118.218 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
@@ -53,19 +53,19 @@ position = Vector2( 15.6863, 118 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 4.41177, 58.6 )
+position = Vector2( 4.39845, 58.0567 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 15.3529, 57.8 )
+position = Vector2( 15.3795, 57.6642 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 9.01961, 64 )
+position = Vector2( 8.93971, 64 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 10.3922, 64 )
+position = Vector2( 10.5387, 64 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Area2D"]
@@ -99,7 +99,7 @@ spawn_rate = 1.0
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, 50 )
 speed = 100
-spawn_rate = 3.0
+spawn_rate = 2.0
 
 [node name="Enemy3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1024, 0 )
@@ -121,16 +121,16 @@ spawn_rate = 1.0
 [node name="Platform2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1024, 608 )
 type = "platform"
-spawn_rate = 3.0
+spawn_rate = 1.0
 
 [node name="Platform3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, 560 )
 type = "platform"
 speed = 100
-spawn_rate = 3.0
+spawn_rate = 0.8
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 490.869, 680.158 )
+position = Vector2( 513.342, 677.184 )
 scale = Vector2( 2, 2 )
 camera_path = NodePath("../Camera2D")
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered_as_death_area"]

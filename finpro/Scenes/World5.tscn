@@ -12,13 +12,13 @@ extents = Vector2( 140.757, 28.0771 )
 extents = Vector2( 16.0479, 13.381 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 111.873, 14.3684 )
+extents = Vector2( 111.873, 13.74 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 141.281, 15.5397 )
+extents = Vector2( 141.281, 14.8444 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 93.2819, 15.2791 )
+extents = Vector2( 93.2819, 12.7473 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 29.4774, 15.2318 )
@@ -30,7 +30,7 @@ extents = Vector2( 62.7523, 14.9052 )
 extents = Vector2( 143.301, 14.5335 )
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 127.068, 15.2155 )
+extents = Vector2( 123.001, 13.2706 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 109.841, 14.9373 )
@@ -50,24 +50,6 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 position = Vector2( 0, 210 )
 script = ExtResource( 2 )
 speed = 100
-spawn_rate = 2.0
-
-[node name="Enemy4" type="Node2D" parent="."]
-position = Vector2( 0, 554.614 )
-script = ExtResource( 2 )
-type = "platform"
-speed = 100
-spawn_rate = 2.0
-
-[node name="Enemy2" type="Node2D" parent="."]
-position = Vector2( 1023.92, 305.132 )
-script = ExtResource( 2 )
-spawn_rate = 2.0
-
-[node name="Enemy3" type="Node2D" parent="."]
-position = Vector2( 1024.12, 409.952 )
-script = ExtResource( 2 )
-type = "platform"
 spawn_rate = 2.0
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -146,7 +128,7 @@ position = Vector2( 848.321, 560.014 )
 shape = SubResource( 10 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 502.093, 711.582 )
+position = Vector2( 502.063, 694.009 )
 
 [node name="Area2D2" type="Area2D" parent="."]
 script = ExtResource( 3 )
@@ -154,5 +136,4 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 515.061, -50.5948 )
 shape = SubResource( 11 )
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered_as_death_area"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_finish"]
