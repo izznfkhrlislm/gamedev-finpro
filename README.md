@@ -3,7 +3,6 @@ Game Development Final Project Repository
 
 Moony’s Tale is a single-player adventure game that unravels Moony’s journey to save his kinds all over the solar system. In this game, the player acts as Moony to get the highest score as possible in an endless game with the planets in space as a background. On every 20 jumps the character makes, Moony saves a rabbit.
 
-Inline-style: 
 ![alt text](https://img.itch.zone/aW1nLzI3NDE2OTEucG5n/original/Lu30R4.png "Moony's Tale Poster")
 
 ## Story
