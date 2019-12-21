@@ -51,6 +51,7 @@ func _input(event):
 			elif direction == 'down':
 				$Sprite.play("JumpDOWN")
 				velocity.y += speed
+				global.counter -= 1
 			elif direction == 'right':
 				$Sprite.play("JumpH")
 				velocity.x += speed
@@ -64,6 +65,8 @@ func _input(event):
 func check_jump_count():
 	if global.counter == 5:
 		create_rabbit_instance()
+		global.counter = 0
+	if global.counter < 0:
 		global.counter = 0
 
 
