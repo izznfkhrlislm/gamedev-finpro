@@ -25,12 +25,12 @@ func _input(event):
 	if event is InputEventKey:
 		if event.is_action_pressed('ui_right'):
 			$Sprite.flip_h = false
-			$Sprite.play("IdleV")
+			$Sprite.play("IdleH")
 			direction = 'right'
 			axis = 'x'
 		if event.is_action_pressed('ui_left'):
 			$Sprite.flip_h = true
-			$Sprite.play("IdleV")
+			$Sprite.play("IdleH")
 			direction = 'left'
 			axis = 'x'
 		if event.is_action_pressed('ui_up'):
@@ -52,10 +52,10 @@ func _input(event):
 				$Sprite.play("JumpDOWN")
 				velocity.y += speed
 			elif direction == 'right':
-				$Sprite.play("JumpV")
+				$Sprite.play("JumpH")
 				velocity.x += speed
 			else:
-				$Sprite.play("JumpV")
+				$Sprite.play("JumpH")
 				velocity.x -= speed
 			$Sprite.frame = 0
 			check_jump_count()
