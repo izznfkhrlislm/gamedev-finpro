@@ -1,6 +1,8 @@
 extends Node2D
 
-export (String) var type = 'enemy'
+enum TYPES {Platform, Enemy}
+
+export (TYPES) var type = TYPES.Enemy
 export (int) var speed = -100
 export (float) var spawn_rate = 0.3
 
@@ -11,7 +13,7 @@ var current_time = 0
 
 func _ready():
 	current_time = spawn_rate
-	if type == "enemy":
+	if type:
 		spawn = preload("res://Scenes/Enemy.tscn")
 	else:
 		spawn = preload("res://Scenes/Platform.tscn")
