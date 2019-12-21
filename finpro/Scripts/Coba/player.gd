@@ -6,7 +6,10 @@ onready var height = get_viewport().size.y
 
 var againts_wall = false
 var direction = 'up'
+var invincible = false
 var rabbit = preload("res://Scenes/Rabbit.tscn")
+var star = preload("res://Scenes/Star.tscn")
+var timer
 
 func _ready():
 	update_look_direction(Vector2(0, -1))
@@ -47,31 +50,22 @@ func update_look_direction(dir):
 func move_to(target_position):
 	set_process(false)
 	
-	if !againts_wall and direction == 'up':
-		global.counter += 1
-	if !againts_wall and direction == 'down':
-		global.counter -= 1
-		
-	if global.counter == 5:
-		global.counter = 0
-		create_rabbit_instance()
-	if global.counter < 0:
-		global.counter = 0
+	check_player_state()
 	
 	match direction:
 		'up':
-			$Sprite.play('JumpUP')
+			$Sprite.play('JumpUP') if invincible == false else $Sprite.play('JumpUPP')
 		'down':
-			$Sprite.play('JumpDOWN')
+			$Sprite.play('JumpDOWN') if invincible == false else $Sprite.play('JumpDOWNP')
 		'left':
 			$Sprite.flip_h = true
-			$Sprite.play('JumpH')
+			$Sprite.play('JumpH') if invincible == false else $Sprite.play('JumpHP')
 		'right': 
 			$Sprite.flip_h = false
-			$Sprite.play('JumpH')
+			$Sprite.play('JumpH') if invincible == false else $Sprite.play('JumpHP')
 		
 	$Sprite.frame = 0
-	$Jump.play()
+#	$Jump.play()
 
 	var move_direction = (target_position - position).normalized()
 	position = target_position
@@ -80,19 +74,64 @@ func move_to(target_position):
 	yield($Sprite, "animation_finished")
 	
 	set_process(true)
-
-func create_rabbit_instance():
+	
+func check_player_state():
+	if !againts_wall and direction == 'up':
+		global.counter += 1
+	if !againts_wall and direction == 'down':
+		global.counter -= 1
+		
+	if global.counter > 5:
+		global.counter = 0
+		create_instance(rabbit)
+	if global.counter < 0:
+		global.counter = 0
+		
+	if global.score != 0 and global.score % 50 == 0:
+		create_instance(star)
+		global.score += 1
+		
+func create_instance(scene):
 	randomize()
-	var rabbit_instance = rabbit.instance()
+	var scene_instance = scene.instance()
 	var pos = Vector2(rand_range(0, width), rand_range(0, height))
 	var cell = Grid.get_cellv(Grid.world_to_map(pos))
 	var is_path = cell == CELL_TYPES.PATH
 	
 	while !is_path:
 		pos = Vector2(rand_range(0, width), rand_range(0, height))
-		is_path = Grid.get_cellv(Grid.world_to_map(pos)) == CELL_TYPES.PATH
+		cell = Grid.get_cellv(Grid.world_to_map(pos))
+		is_path = cell == CELL_TYPES.PATH
 	
 	if Grid != null:
 		pos = Grid.map_to_world(Grid.world_to_map(pos)) + Grid.cell_size / 2
-		rabbit_instance.set_position(pos)
-		Grid.add_child(rabbit_instance)
+		scene_instance.set_position(pos)
+		Grid.add_child(scene_instance)
+
+func _on_body_entered(body):
+	if body.is_in_group('Stars'):
+		body.queue_free()
+		invincible = true
+		$Sprite.animation = $Sprite.animation + 'P'
+		$Sprite.play()
+		$Sprite.frame = 0
+		
+		timer = Timer.new()
+		timer.connect("timeout", self, "on_invincible_timeout")
+		Grid.add_child(timer)
+		timer.set_wait_time(5)
+		timer.start()
+		
+	if body.is_in_group('Rabbits'):
+		body.queue_free()
+		if global.score % 50 == 1 and global.score != 0:
+			global.score -= 1
+		global.score += 10
+	
+func on_invincible_timeout():
+	invincible = false
+	timer.queue_free()
+	$Sprite.animation = $Sprite.animation.left(len($Sprite.animation)-1)
+	$Sprite.play()
+	$Sprite.frame = 0
+	Grid.request_move(self, Vector2.ZERO)

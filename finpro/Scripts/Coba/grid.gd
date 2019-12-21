@@ -13,9 +13,17 @@ func request_move(pawn, direction):
 			$Player.againts_wall = false
 			return update_pawn_position(pawn, cell_start, cell_target)
 		WALL:
-			$Player.againts_wall = true
+			if !$Player.invincible:
+				if get_cellv(cell_start) == WALL:
+					get_tree().change_scene("res://Scenes/GameOver.tscn")
+				$Player.againts_wall = true
+			else:
+				return update_pawn_position(pawn, cell_start, cell_target)
 		EMPTY, LAVA:
-			get_tree().change_scene("res://Scenes/GameOver.tscn")
+			if !$Player.invincible:
+				get_tree().change_scene("res://Scenes/GameOver.tscn")
+			else:
+				return update_pawn_position(pawn, cell_start, cell_target)
 
 func update_pawn_position(pawn, cell_start, cell_target):
 	return map_to_world(cell_target) + cell_size / 2
