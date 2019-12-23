@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/stars.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/TileMap/Planet2.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Finish Area.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Score.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node2D"]
 
@@ -65,3 +66,8 @@ position = Vector2( 79.8795, 651.267 )
 position = Vector2( 512, 360 )
 current = true
 smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" parent="CanvasLayer" instance=ExtResource( 7 )]
+margin_bottom = 199.0
