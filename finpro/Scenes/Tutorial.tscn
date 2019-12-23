@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Fonts/MainFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/ButtonTutor.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/stars.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sprites/arrow.JPG" type="Texture" id=4]
+
+[node name="MarginContainer" type="VSplitContainer"]
+margin_left = 175.0
+margin_top = 500.0
+margin_right = 864.0
+margin_bottom = 699.0
+
+[node name="LinkButton" type="LinkButton" parent="."]
+margin_right = 689.0
+margin_bottom = 199.0
+custom_fonts/font = ExtResource( 1 )
+text = "Continue"
+script = ExtResource( 2 )
+
+[node name="stars" parent="." instance=ExtResource( 3 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 338.53, -215.256 )
+scale = Vector2( 1.054, 1.054 )
+texture = ExtResource( 4 )
+[connection signal="pressed" from="LinkButton" to="LinkButton" method="_on_Continue_pressed"]
