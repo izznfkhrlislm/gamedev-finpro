@@ -50,3 +50,7 @@ smoothing_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Score" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 14.0

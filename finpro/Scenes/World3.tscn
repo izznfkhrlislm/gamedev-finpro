@@ -70,4 +70,3 @@ smoothing_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Score" parent="CanvasLayer" instance=ExtResource( 7 )]
-margin_bottom = 199.0
