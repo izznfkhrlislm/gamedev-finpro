@@ -71,7 +71,7 @@ func move_to(target_position):
 			$Sprite.play('JumpH') if invincible == false else $Sprite.play('JumpHP')
 		
 	$Sprite.frame = 0
-#	$Jump.play()
+	$Jump.play()
 
 	var move_direction = (target_position - position).normalized()
 	position = target_position
