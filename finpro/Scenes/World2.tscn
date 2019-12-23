@@ -21,7 +21,7 @@ script = ExtResource( 3 )
 [node name="EnemyMID" parent="TileMap" instance=ExtResource( 4 )]
 position = Vector2( 1024, 256 )
 speed = -200
-spawn_rate = 5.0
+spawn_rate = 2.5
 
 [node name="EnemyUPR" parent="TileMap" instance=ExtResource( 4 )]
 position = Vector2( 0, 50 )
@@ -37,7 +37,7 @@ spawn_rate = 4.0
 position = Vector2( 950, 256 )
 type = 0
 speed = -200
-spawn_rate = 5.0
+spawn_rate = 2.5
 
 [node name="PlatformMIDR" parent="TileMap" instance=ExtResource( 4 )]
 position = Vector2( 0, 320 )

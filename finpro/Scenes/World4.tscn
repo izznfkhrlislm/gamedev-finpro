@@ -20,8 +20,8 @@ script = ExtResource( 3 )
 
 [node name="Enemy" parent="TileMap" instance=ExtResource( 4 )]
 position = Vector2( 1024, 256 )
-speed = -200
-spawn_rate = 1.0
+speed = -1000
+spawn_rate = 2.0
 
 [node name="Enemy2" parent="TileMap" instance=ExtResource( 4 )]
 position = Vector2( 0, 50 )
@@ -36,8 +36,8 @@ spawn_rate = 4.0
 [node name="Platform4" parent="TileMap" instance=ExtResource( 4 )]
 position = Vector2( 950, 256 )
 type = 0
-speed = -200
-spawn_rate = 1.0
+speed = -1000
+spawn_rate = 2.0
 
 [node name="Platform" parent="TileMap" instance=ExtResource( 4 )]
 position = Vector2( 0, 320 )

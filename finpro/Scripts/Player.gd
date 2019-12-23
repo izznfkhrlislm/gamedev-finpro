@@ -36,6 +36,7 @@ func get_input_direction():
 		int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 	)
 	match dir:
+		# avoids player to jump diagonally
 		Vector2(1, 1), Vector2(-1, 1), Vector2(1, -1), Vector2(-1, -1):
 			dir = Vector2.ZERO
 	return dir
@@ -87,7 +88,7 @@ func check_player_state():
 	if !againts_wall and direction == 'down':
 		global.counter -= 1
 		
-	if global.counter > 5:
+	if global.counter > 0:
 		global.counter = 0
 		create_instance(rabbit)
 	if global.counter < 0:

@@ -20,7 +20,7 @@ script = ExtResource( 3 )
 
 [node name="EnemySpawner" parent="TileMap" instance=ExtResource( 4 )]
 position = Vector2( 0, 350 )
-speed = 100
+speed = 300
 spawn_rate = 1.0
 
 [node name="EnemySpawn2" parent="TileMap" instance=ExtResource( 4 )]
