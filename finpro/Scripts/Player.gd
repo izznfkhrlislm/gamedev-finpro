@@ -88,7 +88,7 @@ func check_player_state():
 	if !againts_wall and direction == 'down':
 		global.counter -= 1
 		
-	if global.counter > 0:
+	if global.counter > 5:
 		global.counter = 0
 		create_instance(rabbit)
 	if global.counter < 0:
