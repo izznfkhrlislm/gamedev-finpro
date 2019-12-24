@@ -59,7 +59,7 @@ speed = 100
 spawn_rate = 0.8
 
 [node name="Player" parent="TileMap" instance=ExtResource( 5 )]
-position = Vector2( 818.075, 658.785 )
+position = Vector2( 495.226, 688.065 )
 
 [node name="Finish Area" parent="." instance=ExtResource( 6 )]
 
